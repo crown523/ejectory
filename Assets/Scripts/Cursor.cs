@@ -20,22 +20,22 @@ public class Cursor : MonoBehaviour
         mousePosition=Camera.main.ScreenToWorldPoint(Input.mousePosition);
         transform.position = Vector2.Lerp(transform.position, mousePosition, moveSpeed);
 
-        if(Input.GetMouseButtonDown(1) && !animator.GetBool("swap")) 
+        if(Input.GetMouseButtonDown(1) && !animator.GetBool("hammerMode")) 
         // can we rename swap to isLockMode or something similar
         // so that its more clear which mode it's in
         {
-            animator.SetBool("swap", true);
+            animator.SetBool("hammerMode", true);
         }
-        else if(Input.GetMouseButtonDown(1) && animator.GetBool("swap"))
+        else if(Input.GetMouseButtonDown(1) && animator.GetBool("hammerMode"))
         {
-            animator.SetBool("swap", false);
+            animator.SetBool("hammerMode", false);
         }
 
         //transform.position = Input.mousePosition;
         //print(Input.mousePosition);
 
         // handle locking
-        if (Input.GetMouseButtonDown(0) && !animator.GetBool("swap")) 
+        if (Input.GetMouseButtonDown(0) && !animator.GetBool("hammerMode")) 
         {
             Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
