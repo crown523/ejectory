@@ -37,7 +37,7 @@ public class Lockable : MonoBehaviour
         {
             locked = false;
             body.velocity = newVelocity;
-            body.velocity = new Vector3(2, 2, 0); // for debug
+            //body.velocity = new Vector3(2, 2, 0); // for debug
         }
 
     }
