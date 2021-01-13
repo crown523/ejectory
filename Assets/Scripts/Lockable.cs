@@ -33,12 +33,20 @@ public class Lockable : MonoBehaviour
 
         //print(body.velocity.y);
 
-        if (Time.time - timeWhenLocked > 3) // locks last 3 seconds
+        if (Time.time - timeWhenLocked > 5) // locks last 5 seconds
         {
             locked = false;
+            body.isKinematic = false;
+            //body.constraints = RigidbodyConstraints2D.None;
             body.velocity = newVelocity;
             //body.velocity = new Vector3(2, 2, 0); // for debug
         }
+
+        // if (locked)
+        // {
+        //     body.velocity = new Vector3(0,0,0);
+        // }
+        //Debug.Log(body.velocity);
 
     }
 
@@ -50,16 +58,22 @@ public class Lockable : MonoBehaviour
             timeWhenLocked = Time.time;
             print("locked");
             body.velocity = new Vector3(0,0,0); // kill movement
+            //body.constraints = RigidbodyConstraints2D.FreezePosition | RigidbodyConstraints2D.FreezeRotation;
+            newVelocity = new Vector3(0,0,0);
+            body.isKinematic = true;
         }
         
     }
 
-    public void ApplyMomentum()
+    public void ApplyMomentum(float xaxis, float yaxis)
     {
         if (locked)
         {
             print("touched");
+            Debug.Log("xaxis: " + xaxis + " yaxis: " + yaxis);
             // update newVelocity here
+            newVelocity.x += xaxis * 10;
+            newVelocity.y += yaxis * 10;
         }
         
     }
