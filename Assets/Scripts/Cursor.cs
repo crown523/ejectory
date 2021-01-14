@@ -89,53 +89,58 @@ public class Cursor : MonoBehaviour
         }
         //Debug.Log(Input.GetAxis("Mouse X") + " " + Input.GetAxis("Mouse Y"));
 
-        // if (animator.GetBool("hammerMode"))
-        // {
-        //     Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        //     Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
-            
-        //     RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero);
-        //     if (hit.collider != null) 
-        //     {
-        //         //handle momentum application
-        //         if (hit.collider.gameObject.GetComponent<Lockable>())
-        //         {
-        //             Lockable objScript = hit.collider.gameObject.GetComponent<Lockable>();
-        //             objScript.ApplyMomentum(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
-        //         }
-        //     }
-        // }
-    }
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        print("hi");
-        //old momentum application. kept in case its fundamentals are needed later
-        /*
-        if (animator.GetBool("hammerMode"))
+        // handle momentum application
+        if (Input.GetMouseButtonDown(0) && animator.GetBool("hammerMode"))
         {
+            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
             
-            
-            Debug.Log(other.gameObject);
-            //handle momentum application
-            if (other.gameObject.GetComponent<Lockable>())
+            RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero);
+            if (hit.collider != null) 
             {
-                Lockable objScript = other.gameObject.GetComponent<Lockable>();
-                objScript.ApplyMomentum(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
+                //handle momentum application
+                if (hit.collider.gameObject.GetComponent<Lockable>())
+                {
+                    Lockable objScript = hit.collider.gameObject.GetComponent<Lockable>();
+                    objScript.ApplyMomentumNewMethod(mousePos.x, mousePos.y);
+                }
             }
+        }
+    }
+
+    // smack-hammer-into-object method
+
+    // void OnTriggerEnter2D(Collider2D other)
+    // {
+    //     print("hi");
+    //     //old momentum application. kept in case its fundamentals are needed later
+    //     /*
+    //     if (animator.GetBool("hammerMode"))
+    //     {
             
-        }
-        */
+            
+    //         Debug.Log(other.gameObject);
+    //         //handle momentum application
+    //         if (other.gameObject.GetComponent<Lockable>())
+    //         {
+    //             Lockable objScript = other.gameObject.GetComponent<Lockable>();
+    //             objScript.ApplyMomentum(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
+    //         }
+            
+    //     }
+    //     */
 
-        //if the other collider is not Lockable, pass through it without 
-        //affecting the momentum of the other object
-        Lockable objScript = other.gameObject.GetComponent<Lockable>();
+    //     //if the other collider is not Lockable, pass through it without 
+    //     //affecting the momentum of the other object
+    //     Lockable objScript = other.gameObject.GetComponent<Lockable>();
 
-        if(animator.GetBool("hammerMode") && objScript && objScript.lockState())
-        {
-            //apply momentum
-        }
+    //     if(animator.GetBool("hammerMode") && objScript && objScript.lockState())
+    //     {
+    //         //apply momentum
+    //         objScript.ApplyMomentum(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
+    //     }
         
 
-    }
+    // }
 
 }
