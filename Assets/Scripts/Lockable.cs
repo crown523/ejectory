@@ -77,4 +77,9 @@ public class Lockable : MonoBehaviour
         }
         
     }
+
+    public bool lockState()
+    {
+        return locked;
+    }
 }

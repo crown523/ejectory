@@ -21,9 +21,37 @@ public class Cursor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        mousePosition=Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        transform.position = Vector2.Lerp(transform.position, mousePosition, moveSpeed);
+        //attempt to stop cursor follow when hammer mode cursor is inside a Lockable object
+        if(animator.GetBool("hammerMode"))
+        {
+            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
+            
+            RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero);
+            if (hit.collider == null)
+            {
+                mousePosition=Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                transform.position = Vector2.Lerp(transform.position, mousePosition, moveSpeed);
+            }
+            else
+            {
+                Lockable objScript = hit.collider.gameObject.GetComponent<Lockable>();
 
+                if (!objScript || !objScript.lockState())
+                {
+                    mousePosition=Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                    transform.position = Vector2.Lerp(transform.position, mousePosition, moveSpeed);
+                }
+            }
+        }
+        else
+        {
+            mousePosition=Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            transform.position = Vector2.Lerp(transform.position, mousePosition, moveSpeed);
+        }
+        
+
+        //switch cursor modes with right click
         if(Input.GetMouseButtonDown(1) && !animator.GetBool("hammerMode")) 
         {
             animator.SetBool("hammerMode", true);
@@ -78,12 +106,15 @@ public class Cursor : MonoBehaviour
         //     }
         // }
     }
-
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("hi");
+        print("hi");
+        //old momentum application. kept in case its fundamentals are needed later
+        /*
         if (animator.GetBool("hammerMode"))
         {
+            
+            
             Debug.Log(other.gameObject);
             //handle momentum application
             if (other.gameObject.GetComponent<Lockable>())
@@ -91,6 +122,20 @@ public class Cursor : MonoBehaviour
                 Lockable objScript = other.gameObject.GetComponent<Lockable>();
                 objScript.ApplyMomentum(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
             }
+            
         }
+        */
+
+        //if the other collider is not Lockable, pass through it without 
+        //affecting the momentum of the other object
+        Lockable objScript = other.gameObject.GetComponent<Lockable>();
+
+        if(animator.GetBool("hammerMode") && objScript && objScript.lockState())
+        {
+            //apply momentum
+        }
+        
+
     }
+
 }
