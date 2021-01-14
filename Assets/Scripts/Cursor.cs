@@ -106,10 +106,9 @@ public class Cursor : MonoBehaviour
         //     }
         // }
     }
-
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("hi");
+        print("hi");
         //old momentum application. kept in case its fundamentals are needed later
         /*
         if (animator.GetBool("hammerMode"))
@@ -127,14 +126,16 @@ public class Cursor : MonoBehaviour
         }
         */
 
-        if(animator.GetBool("hammerMode") && other.gameObject.GetComponent<Lockable>())
+        //if the other collider is not Lockable, pass through it without 
+        //affecting the momentum of the other object
+        Lockable objScript = other.gameObject.GetComponent<Lockable>();
+
+        if(animator.GetBool("hammerMode") && objScript && objScript.lockState())
         {
-            Lockable objScript = other.gameObject.GetComponent<Lockable>();
-
-            if(objScript.lockState())
-            {
-
-            }
+            //apply momentum
         }
+        
+
     }
+
 }
