@@ -11,6 +11,7 @@ public class Lockable : MonoBehaviour
     private float timeWhenLocked;
     private Vector3 newVelocity;
     public GameObject indicatorArrow;
+    private string arrowLoc;
 
     public float speed;
 
@@ -36,15 +37,15 @@ public class Lockable : MonoBehaviour
 
         //print(body.velocity.y);
 
-        if (locked && (Time.time - timeWhenLocked > 5)) // locks last 5 seconds
-        {
-            locked = false;
-            body.isKinematic = false;
-            Destroy(transform.GetChild(0).gameObject);
-            //body.constraints = RigidbodyConstraints2D.None;
-            body.velocity = newVelocity;
-            //body.velocity = new Vector3(2, 2, 0); // for debug
-        }
+        // if (locked && (Time.time - timeWhenLocked > 5)) // locks last 5 seconds
+        // {
+        //     locked = false;
+        //     body.isKinematic = false;
+        //     Destroy(transform.GetChild(0).gameObject);
+        //     //body.constraints = RigidbodyConstraints2D.None;
+        //     body.velocity = newVelocity;
+        //     //body.velocity = new Vector3(2, 2, 0); // for debug
+        // }
 
         // if (locked)
         // {
@@ -127,76 +128,129 @@ public class Lockable : MonoBehaviour
             // do calculations to determine the position of the arrow (since it scales from center)
 
             // calculate rotation angle
-            float rotAngle = Mathf.Atan(newVelocity.y / newVelocity.x) * Mathf.Rad2Deg - 90;
+            float rotAngle = Mathf.Atan(newVelocity.y / newVelocity.x) * Mathf.Rad2Deg + 90;
             // rotate the arrow
             Quaternion target = Quaternion.Euler(0, 0, rotAngle);
             transform.GetChild(0).rotation = target;
 
-            rotAngle = 0 - rotAngle; //idk man
+            //rotAngle = 0 - rotAngle; //idk man
             Debug.Log("rotangle: " + rotAngle);
 
             // based on which quadrant the arrow is pointing in
             // move the arrow to the top/bottom/left/right side of the box
             Vector3 startingArrowPos;
-            if (rotAngle >= 337.5 || rotAngle < 22.5)
+            // if (rotAngle >= 337.5 || rotAngle < 22.5)
+            // {
+            //     Debug.Log("top");
+            //     startingArrowPos = new Vector3(xpos, ypos + GetComponent<Renderer>().bounds.extents.y, 0);
+            // }
+            // else if (rotAngle < 67.5)
+            // {
+            //     Debug.Log("topright");
+            //     // topright
+            //     startingArrowPos = new Vector3(xpos + GetComponent<Renderer>().bounds.extents.x, ypos + GetComponent<Renderer>().bounds.extents.y, 0);
+            // }
+            // else if (rotAngle < 112.5)
+            // {
+            //     Debug.Log("right");
+            //     // right
+            //     startingArrowPos = new Vector3(xpos + GetComponent<Renderer>().bounds.extents.x, ypos, 0);
+            // }
+            // else if (rotAngle < 157.5)
+            // {
+            //     Debug.Log("bottomright");
+            //     // bottomright
+            //     startingArrowPos = new Vector3(xpos + GetComponent<Renderer>().bounds.extents.x, ypos - GetComponent<Renderer>().bounds.extents.y, 0);
+            // }
+            // else if (rotAngle < 202.5)
+            // {
+            //     Debug.Log("bottom");
+            //     // bottom
+            //     startingArrowPos = new Vector3(xpos, ypos - GetComponent<Renderer>().bounds.extents.y, ypos);
+            // }
+            // else if (rotAngle < 247.5)
+            // {
+            //     Debug.Log("bottomleft");
+            //     // bottomleft
+            //     startingArrowPos = new Vector3(xpos - GetComponent<Renderer>().bounds.extents.x, ypos - GetComponent<Renderer>().bounds.extents.y, 0);
+            // }
+            // else if (rotAngle < 292.5)
+            // {
+            //     Debug.Log("left");
+            //     // left
+            //     startingArrowPos = new Vector3(xpos - GetComponent<Renderer>().bounds.extents.x, ypos, 0);
+            // }
+            // else
+            // {
+            //     Debug.Log("topleft");
+            //     // topleft
+            //     startingArrowPos = new Vector3(xpos - GetComponent<Renderer>().bounds.extents.x, ypos + GetComponent<Renderer>().bounds.extents.y, 0);
+            // }
+
+
+            // please someone come up with a better way to do this cuz my brain is fried
+            if (newVelocity.x > newVelocity.y)
             {
-                Debug.Log("top");
-                startingArrowPos = new Vector3(xpos, ypos + GetComponent<Renderer>().bounds.extents.y, 0);
-            }
-            else if (rotAngle < 67.5)
-            {
-                Debug.Log("topright");
-                // topright
-                startingArrowPos = new Vector3(xpos + GetComponent<Renderer>().bounds.extents.x, ypos + GetComponent<Renderer>().bounds.extents.y, 0);
-            }
-            else if (rotAngle < 112.5)
-            {
-                Debug.Log("right");
-                // right
-                startingArrowPos = new Vector3(xpos + GetComponent<Renderer>().bounds.extents.x, ypos, 0);
-            }
-            else if (rotAngle < 157.5)
-            {
-                Debug.Log("bottomright");
-                // bottomright
-                startingArrowPos = new Vector3(xpos + GetComponent<Renderer>().bounds.extents.x, ypos - GetComponent<Renderer>().bounds.extents.y, 0);
-            }
-            else if (rotAngle < 202.5)
-            {
-                Debug.Log("bottom");
-                // bottom
-                startingArrowPos = new Vector3(xpos, ypos - GetComponent<Renderer>().bounds.extents.y, ypos);
-            }
-            else if (rotAngle < 247.5)
-            {
-                Debug.Log("bottomleft");
-                // bottomleft
-                startingArrowPos = new Vector3(xpos - GetComponent<Renderer>().bounds.extents.x, ypos - GetComponent<Renderer>().bounds.extents.y, 0);
-            }
-            else if (rotAngle < 292.5)
-            {
-                Debug.Log("left");
-                // left
-                startingArrowPos = new Vector3(xpos - GetComponent<Renderer>().bounds.extents.x, ypos, 0);
+                if (newVelocity.x > 0)
+                {
+                    Debug.Log("right");
+                    arrowLoc = "right";
+                    startingArrowPos = new Vector3(xpos + GetComponent<Renderer>().bounds.extents.x, ypos, 0);
+                }
+                else
+                {
+                    Debug.Log("left");
+                    arrowLoc = "left";
+                    startingArrowPos = new Vector3(xpos - GetComponent<Renderer>().bounds.extents.x, ypos, 0);
+                }
             }
             else
             {
-                Debug.Log("topleft");
-                // topleft
-                startingArrowPos = new Vector3(xpos - GetComponent<Renderer>().bounds.extents.x, ypos + GetComponent<Renderer>().bounds.extents.y, 0);
+                if (newVelocity.y > 0)
+                {
+                    Debug.Log("top");
+                    arrowLoc = "top";
+                    startingArrowPos = new Vector3(xpos, ypos + GetComponent<Renderer>().bounds.extents.y, 0);
+                }
+                else
+                {
+                    Debug.Log("bottom");
+                    arrowLoc = "bot";
+                    startingArrowPos = new Vector3(xpos, ypos - GetComponent<Renderer>().bounds.extents.y, ypos);
+                }
             }
+            
 
             // based on the scale, adjust the position of the center
             // so that the end of the scaled arrow is located at startingArrowPos
             // at scale 1 the end of thearrow is 
             // indicatorArrow.GetComponent<Renderer>().bounds.extents.y units away from the center
-            Vector3 adjustedArrowPos = startingArrowPos + new Vector3(0, indicatorArrow.GetComponent<Renderer>().bounds.extents.y * transform.GetChild(0).localScale.y, 0);
+
+
+            // doesn't really work
+            // fml
+            Vector3 adjustedArrowPos = new Vector3(0,0,0); //prevents error
+            float xoffset = 5 * indicatorArrow.GetComponent<Renderer>().bounds.extents.x * transform.GetChild(0).localScale.y;
+            float yoffset = 5 * indicatorArrow.GetComponent<Renderer>().bounds.extents.y * transform.GetChild(0).localScale.y;
+
+            switch (arrowLoc)
+            {   
+                case "left":
+                    adjustedArrowPos = startingArrowPos + new Vector3(-xoffset, 0, 0);
+                    break;
+                case "right":
+                    adjustedArrowPos = startingArrowPos + new Vector3(xoffset, 0, 0);
+                    break;
+                case "top":
+                    adjustedArrowPos = startingArrowPos + new Vector3(0, yoffset, 0);
+                    break;
+                case "bot":
+                    adjustedArrowPos = startingArrowPos + new Vector3(0, -yoffset, 0);
+                    break;
+            }
+
             Debug.Log(adjustedArrowPos);
             transform.GetChild(0).position = adjustedArrowPos;
-
-            
-
-
         }
     }
 
