@@ -297,7 +297,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   indicatorArrow: {fileID: 6890768259274556083, guid: 723c3bff72841425495248e38bfa23dc,
     type: 3}
-  speed: 5
+  speed: 1
 --- !u!61 &226264441
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -755,3 +755,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79665ba3fca6e6845990d4237e5b97d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startVelocityX: 0
+  startVelocityY: 0

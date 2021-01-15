@@ -8,6 +8,7 @@ public class Cursor : MonoBehaviour
     private Animator animator;
     public float moveSpeed = 0.1f;
 
+    private Transform lockhammerLoc;
     private Collider2D collider;
 
     // Start is called before the first frame update
@@ -15,6 +16,7 @@ public class Cursor : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         collider = GetComponent<Collider2D>();
+        lockhammerLoc = GetComponent<Transform>();
         collider.enabled = false;
     }
 
@@ -102,7 +104,7 @@ public class Cursor : MonoBehaviour
                 if (hit.collider.gameObject.GetComponent<Lockable>())
                 {
                     Lockable objScript = hit.collider.gameObject.GetComponent<Lockable>();
-                    objScript.ApplyMomentumNewMethod(mousePos.x, mousePos.y);
+                    objScript.ApplyMomentumNewMethod(lockhammerLoc.position.x, lockhammerLoc.position.y);
                 }
             }
         }
