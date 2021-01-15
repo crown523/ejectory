@@ -14,6 +14,7 @@ public class Cursor : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gameObject.SetActive(false);
         animator = GetComponent<Animator>();
         collider = GetComponent<Collider2D>();
         lockhammerLoc = GetComponent<Transform>();
