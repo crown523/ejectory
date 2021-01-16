@@ -9,6 +9,9 @@ public class Cursor : MonoBehaviour
     public float moveSpeed = 0.1f;
 
     private Transform lockhammerLoc;
+    // having the collider on breaks the cursor follow stuff
+    // do we need it for anything?
+    // if not delete it
     private Collider2D collider;
 
     // Start is called before the first frame update
@@ -18,33 +21,57 @@ public class Cursor : MonoBehaviour
         animator = GetComponent<Animator>();
         collider = GetComponent<Collider2D>();
         lockhammerLoc = GetComponent<Transform>();
-        collider.enabled = false;
+
+        
+        //collider.enabled = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        //attempt to stop cursor follow when hammer mode cursor is inside a Lockable object
+        
         if(animator.GetBool("hammerMode"))
         {
+            // prevent passing through lockables
+
+            //old method
+
+            // Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            // Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
+            
+            // RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero);
+            // if (hit.collider == null)
+            // {
+            //     mousePosition=Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            //     transform.position = Vector2.Lerp(transform.position, mousePosition, moveSpeed);
+            // }
+            // else
+            // {
+            //     Lockable objScript = hit.collider.gameObject.GetComponent<Lockable>();
+
+            //     if (!objScript || !objScript.lockState())
+            //     {
+            //         mousePosition=Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            //         transform.position = Vector2.Lerp(transform.position, mousePosition, moveSpeed);
+            //     }
+            // }
+
+            // new method
+            // raycast in a circle around cursor
+
             Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
-            
-            RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero);
-            if (hit.collider == null)
+            Collider2D inRadius = Physics2D.OverlapCircle(mousePos2D, 0.1f, Physics.DefaultRaycastLayers, 0, 0);
+            //Debug.Log(inRadius);
+            if (!inRadius)
             {
                 mousePosition=Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 transform.position = Vector2.Lerp(transform.position, mousePosition, moveSpeed);
             }
-            else
+            else if (!inRadius.GetComponent<Lockable>())
             {
-                Lockable objScript = hit.collider.gameObject.GetComponent<Lockable>();
-
-                if (!objScript || !objScript.lockState())
-                {
-                    mousePosition=Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                    transform.position = Vector2.Lerp(transform.position, mousePosition, moveSpeed);
-                }
+                mousePosition=Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                transform.position = Vector2.Lerp(transform.position, mousePosition, moveSpeed);
             }
         }
         else
@@ -58,12 +85,12 @@ public class Cursor : MonoBehaviour
         if(Input.GetMouseButtonDown(1) && !animator.GetBool("hammerMode")) 
         {
             animator.SetBool("hammerMode", true);
-            collider.enabled = true;
+            //collider.enabled = true; 
         }
         else if(Input.GetMouseButtonDown(1) && animator.GetBool("hammerMode"))
         {
             animator.SetBool("hammerMode", false);
-            collider.enabled = false;
+            //collider.enabled = false;
         }
 
         //transform.position = Input.mousePosition;
