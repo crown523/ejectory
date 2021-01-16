@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Lockable : MonoBehaviour
 {
@@ -13,12 +14,17 @@ public class Lockable : MonoBehaviour
     public GameObject indicatorArrow;
     private string arrowLoc;
 
+    private SpriteRenderer sprite;
+
     public float speed;
+
+    public Text testBox;
 
     // Start is called before the first frame update
     void Start()
     {
-        //moving = false;
+        sprite = GetComponent<SpriteRenderer>();
+        sprite.color = Color.white;
 
         body = GetComponent<Rigidbody2D>();
         transform = GetComponent<Transform>();
@@ -37,16 +43,28 @@ public class Lockable : MonoBehaviour
 
         //print(body.velocity.y);
 
-        // if (locked && (Time.time - timeWhenLocked > 5)) // locks last 5 seconds
-        // {
-        //     locked = false;
-        //     body.isKinematic = false;
-        //     Destroy(transform.GetChild(0).gameObject);
-        //     //body.constraints = RigidbodyConstraints2D.None;
-        //     body.velocity = newVelocity;
-        //     //body.velocity = new Vector3(2, 2, 0); // for debug
-        // }
+        if (locked && (Time.time - timeWhenLocked > 5)) // locks last 5 seconds
+        {
+            locked = false;
+            body.isKinematic = false;
+            Destroy(transform.GetChild(0).gameObject);
+            //body.constraints = RigidbodyConstraints2D.None;
+            body.velocity = newVelocity;
+            //body.velocity = new Vector3(2, 2, 0); // for debug
+        }
 
+        if(locked && (Time.time - timeWhenLocked < 5))
+        {
+            testBox.text = "Time left: " + (5 - (Time.time - timeWhenLocked));
+            sprite.color = Color.Lerp(Color.white, Color.yellow, Mathf.PingPong(Time.time, (6f - (Time.time - timeWhenLocked))/5 ));
+            
+
+        }
+        else
+        {
+            testBox.text = "not locked";  
+            sprite.color = Color.white;
+        }
         // if (locked)
         // {
         //     body.velocity = new Vector3(0,0,0);
@@ -66,6 +84,9 @@ public class Lockable : MonoBehaviour
             //body.constraints = RigidbodyConstraints2D.FreezePosition | RigidbodyConstraints2D.FreezeRotation;
             newVelocity = new Vector3(0,0,0);
             body.isKinematic = true;
+
+            //change sprite color
+            sprite.color = Color.yellow;
 
             // create arrow indicator
 
