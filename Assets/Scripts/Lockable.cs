@@ -18,7 +18,6 @@ public class Lockable : MonoBehaviour
 
     public float speed;
 
-    public Text testBox;
 
     // Start is called before the first frame update
     void Start()
@@ -55,14 +54,10 @@ public class Lockable : MonoBehaviour
 
         if(locked && (Time.time - timeWhenLocked < 5))
         {
-            testBox.text = "Time left: " + (5 - (Time.time - timeWhenLocked));
             sprite.color = Color.Lerp(Color.white, Color.yellow, Mathf.PingPong(Time.time, (6f - (Time.time - timeWhenLocked))/5 ));
-            
-
         }
         else
         {
-            testBox.text = "not locked";  
             sprite.color = Color.white;
         }
         // if (locked)
