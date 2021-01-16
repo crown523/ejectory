@@ -9,7 +9,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: swap
+    m_ConditionEvent: hammerMode
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 3531377368064153332}
@@ -34,7 +34,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: swap
+    m_ConditionEvent: hammerMode
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 4558407768683453221}
@@ -59,7 +59,7 @@ AnimatorController:
   m_Name: cursor
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: swap
+  - m_Name: hammerMode
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
