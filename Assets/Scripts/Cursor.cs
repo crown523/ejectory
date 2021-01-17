@@ -57,7 +57,8 @@ public class Cursor : MonoBehaviour
             // }
 
             // new method
-            // raycast in a circle around cursor
+            // uses physics2d overlap circle
+            // which checks for colliders in a circle around specified point (cursor in this case)
 
             Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);

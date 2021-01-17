@@ -23,4 +23,25 @@ public class GameManager : MonoBehaviour
         cursor.SetActive(true);
         ball.setStartingVelocity();
     }
+
+    public void Pause()
+    {
+        Time.timeScale = 0;
+        
+    }
+
+    public void Resume()
+    {
+
+    }
+
+    public void RestartLevel()
+    {
+
+    }
+
+    public void QuitToTitle()
+    {
+
+    }
 }
