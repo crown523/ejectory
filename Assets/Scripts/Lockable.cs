@@ -54,7 +54,7 @@ public class Lockable : MonoBehaviour
 
         if(locked && (Time.time - timeWhenLocked < 5))
         {
-            sprite.color = Color.Lerp(Color.white, Color.yellow, Mathf.PingPong(Time.time, (6f - (Time.time - timeWhenLocked))/5 ));
+            sprite.color = Color.Lerp(Color.white, new Color(0.76f, 0.67f, 0f, 1f), Mathf.PingPong(Time.time, (6f - (Time.time - timeWhenLocked))/5) );
         }
         else
         {
@@ -107,6 +107,8 @@ public class Lockable : MonoBehaviour
     {
         if (locked)
         {
+            
+
             //print("touched");
             Debug.Log("xpos: " + hammerxpos + " ypos: " + hammerypos);
             // update newVelocity here
