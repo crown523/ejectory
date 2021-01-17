@@ -144,7 +144,26 @@ public class Lockable : MonoBehaviour
             // do calculations to determine the position of the arrow (since it scales from center)
 
             // calculate rotation angle
-            float rotAngle = Mathf.Atan(newVelocity.y / newVelocity.x) * Mathf.Rad2Deg + 90;
+            float rotAngle;
+            if(newVelocity.x >= 0 && newVelocity.y >= 0) //Quadrant 1
+            {
+                rotAngle = Mathf.Atan(newVelocity.y / newVelocity.x) * Mathf.Rad2Deg - 90f;
+            }
+            else if(newVelocity.x < 0 && newVelocity.y >= 0) //Quadrant 2
+            {
+                rotAngle = Mathf.Atan(newVelocity.y / newVelocity.x) * Mathf.Rad2Deg + 90f;
+            }
+            else if(newVelocity.x < 0 && newVelocity.y < 0) //Quadrant 3
+            {
+                rotAngle = Mathf.Atan(newVelocity.y / newVelocity.x) * Mathf.Rad2Deg + 90f;
+            }
+            else
+            {
+                rotAngle = Mathf.Atan(newVelocity.y / newVelocity.x) * Mathf.Rad2Deg - 90f;
+            }
+            
+            //float rotAngle = Mathf.Atan(newVelocity.y / newVelocity.x) * Mathf.Rad2Deg;
+            
             // rotate the arrow
             Quaternion target = Quaternion.Euler(0, 0, rotAngle);
             transform.GetChild(0).rotation = target;
@@ -152,6 +171,7 @@ public class Lockable : MonoBehaviour
             //rotAngle = 0 - rotAngle; //idk man
             Debug.Log("rotangle: " + rotAngle);
 
+/*
             // based on which quadrant the arrow is pointing in
             // move the arrow to the top/bottom/left/right side of the box
             Vector3 startingArrowPos;
@@ -267,6 +287,7 @@ public class Lockable : MonoBehaviour
 
             Debug.Log(adjustedArrowPos);
             transform.GetChild(0).position = adjustedArrowPos;
+*/
         }
     }
 
