@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Lockable : MonoBehaviour
 {
@@ -13,12 +14,16 @@ public class Lockable : MonoBehaviour
     public GameObject indicatorArrow;
     private string arrowLoc;
 
+    private SpriteRenderer sprite;
+
     public float speed;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        //moving = false;
+        sprite = GetComponent<SpriteRenderer>();
+        sprite.color = Color.white;
 
         body = GetComponent<Rigidbody2D>();
         transform = GetComponent<Transform>();
@@ -37,16 +42,24 @@ public class Lockable : MonoBehaviour
 
         //print(body.velocity.y);
 
-        // if (locked && (Time.time - timeWhenLocked > 5)) // locks last 5 seconds
-        // {
-        //     locked = false;
-        //     body.isKinematic = false;
-        //     Destroy(transform.GetChild(0).gameObject);
-        //     //body.constraints = RigidbodyConstraints2D.None;
-        //     body.velocity = newVelocity;
-        //     //body.velocity = new Vector3(2, 2, 0); // for debug
-        // }
+        if (locked && (Time.time - timeWhenLocked > 5)) // locks last 5 seconds
+        {
+            locked = false;
+            body.isKinematic = false;
+            Destroy(transform.GetChild(0).gameObject);
+            //body.constraints = RigidbodyConstraints2D.None;
+            body.velocity = newVelocity;
+            //body.velocity = new Vector3(2, 2, 0); // for debug
+        }
 
+        if(locked && (Time.time - timeWhenLocked < 5))
+        {
+            sprite.color = Color.Lerp(Color.white, new Color(0.76f, 0.67f, 0f, 1f), Mathf.PingPong(Time.time, (6f - (Time.time - timeWhenLocked))/5) );
+        }
+        else
+        {
+            sprite.color = Color.white;
+        }
         // if (locked)
         // {
         //     body.velocity = new Vector3(0,0,0);
@@ -66,6 +79,9 @@ public class Lockable : MonoBehaviour
             //body.constraints = RigidbodyConstraints2D.FreezePosition | RigidbodyConstraints2D.FreezeRotation;
             newVelocity = new Vector3(0,0,0);
             body.isKinematic = true;
+
+            //change sprite color
+            sprite.color = Color.yellow;
 
             // create arrow indicator
 
@@ -91,6 +107,8 @@ public class Lockable : MonoBehaviour
     {
         if (locked)
         {
+            
+
             //print("touched");
             Debug.Log("xpos: " + hammerxpos + " ypos: " + hammerypos);
             // update newVelocity here
@@ -128,7 +146,26 @@ public class Lockable : MonoBehaviour
             // do calculations to determine the position of the arrow (since it scales from center)
 
             // calculate rotation angle
-            float rotAngle = Mathf.Atan(newVelocity.y / newVelocity.x) * Mathf.Rad2Deg + 90;
+            float rotAngle;
+            if(newVelocity.x >= 0 && newVelocity.y >= 0) //Quadrant 1
+            {
+                rotAngle = Mathf.Atan(newVelocity.y / newVelocity.x) * Mathf.Rad2Deg - 90f;
+            }
+            else if(newVelocity.x < 0 && newVelocity.y >= 0) //Quadrant 2
+            {
+                rotAngle = Mathf.Atan(newVelocity.y / newVelocity.x) * Mathf.Rad2Deg + 90f;
+            }
+            else if(newVelocity.x < 0 && newVelocity.y < 0) //Quadrant 3
+            {
+                rotAngle = Mathf.Atan(newVelocity.y / newVelocity.x) * Mathf.Rad2Deg + 90f;
+            }
+            else
+            {
+                rotAngle = Mathf.Atan(newVelocity.y / newVelocity.x) * Mathf.Rad2Deg - 90f;
+            }
+            
+            //float rotAngle = Mathf.Atan(newVelocity.y / newVelocity.x) * Mathf.Rad2Deg;
+            
             // rotate the arrow
             Quaternion target = Quaternion.Euler(0, 0, rotAngle);
             transform.GetChild(0).rotation = target;
@@ -136,6 +173,7 @@ public class Lockable : MonoBehaviour
             //rotAngle = 0 - rotAngle; //idk man
             Debug.Log("rotangle: " + rotAngle);
 
+/*
             // based on which quadrant the arrow is pointing in
             // move the arrow to the top/bottom/left/right side of the box
             Vector3 startingArrowPos;
@@ -251,6 +289,7 @@ public class Lockable : MonoBehaviour
 
             Debug.Log(adjustedArrowPos);
             transform.GetChild(0).position = adjustedArrowPos;
+*/
         }
     }
 
