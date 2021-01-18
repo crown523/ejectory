@@ -46,3 +46,6 @@ TagManager:
   - name: cursor
     uniqueID: 1523093571
     locked: 0
+  - name: pauseMenu
+    uniqueID: 1449403871
+    locked: 0
