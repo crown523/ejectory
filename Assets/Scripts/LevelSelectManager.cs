@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelSelectManager : MonoBehaviour
 {
@@ -20,8 +21,8 @@ public class LevelSelectManager : MonoBehaviour
     // the programatically select the correct scene from the list of scenes in build
     // rather than 10 functions / a switch with 10 statements
 
-    public void QuitToTile()
+    public void QuitToTitle()
     {
-        
+
     }
 }
