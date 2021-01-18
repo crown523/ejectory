@@ -20,12 +20,10 @@ See below code for the appropriate git commands:
     git checkout -b <nickname>/<issue-name>
 
     # Make changes and commit appropriate files
-    # See changed files
-    git status
     # Add files to commit
-    git add <files> (git add .) to add all changed files
+    git add <files> (use "git add ." to add all changed files)
     # Commit with short descriptive message
-    git commit -m "descriptive message here"
+    git commit -m "message describing your changes"
 
     # When ready to open a PR
     git push
