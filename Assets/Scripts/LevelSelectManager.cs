@@ -31,6 +31,6 @@ public class LevelSelectManager : MonoBehaviour
 
     public void QuitToTitle()
     {
-
+        SceneManager.LoadScene("TitleScreen");
     }
 }
