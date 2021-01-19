@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
 
     // ui
     public GameObject pauseMenu;
-    public Button startLevelButton;
+    public GameObject startLevelButton;
 
     // state
     private bool isPaused;
