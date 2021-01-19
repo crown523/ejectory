@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
 
     // ui
     public GameObject pauseMenu;
+    public Button startLevelButton;
 
     // state
     private bool isPaused;
@@ -20,6 +21,7 @@ public class GameManager : MonoBehaviour
     {
         pauseMenu.SetActive(false);
         isPaused = false;
+        startLevelButton.SetActive(true);
     }
 
     // Update is called once per frame
@@ -45,6 +47,7 @@ public class GameManager : MonoBehaviour
     public void StartLevel()
     {
         cursor.SetActive(true);
+        startLevelButton.SetActive(false);
         ball.setStartingVelocity();
     }
 
@@ -53,7 +56,6 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0;
         pauseMenu.SetActive(true);
         isPaused = true;
-
     }
 
     public void Resume()
