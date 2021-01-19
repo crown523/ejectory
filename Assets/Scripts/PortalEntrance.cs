@@ -22,14 +22,14 @@ public class PortalEntrance : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (orientation = "horizontal")
+        if (orientation == "horizontal")
         {
-            other.attachedRigidbody.velocity.x *= -1;
+            other.attachedRigidbody.velocity -= new Vector2(2 * other.attachedRigidbody.velocity.x, 0);
         }
         else
         {
-            other.attachedRigidbody.velocity.y *= -1;
+            other.attachedRigidbody.velocity -= new Vector2(0, 2 * other.attachedRigidbody.velocity.y);
         }
-        other.attachedRigidbody.position = portalExit.GetComponent<Transform>.position;
+        other.attachedRigidbody.position = portalExit.GetComponent<Transform>().position;
     }
 }
