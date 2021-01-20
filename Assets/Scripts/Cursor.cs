@@ -29,7 +29,8 @@ public class Cursor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        // move checks to fixupdate
+
         if(animator.GetBool("hammerMode"))
         {
             // prevent passing through lockables
@@ -138,40 +139,4 @@ public class Cursor : MonoBehaviour
             }
         }
     }
-
-    // smack-hammer-into-object method
-
-    // void OnTriggerEnter2D(Collider2D other)
-    // {
-    //     print("hi");
-    //     //old momentum application. kept in case its fundamentals are needed later
-    //     /*
-    //     if (animator.GetBool("hammerMode"))
-    //     {
-            
-            
-    //         Debug.Log(other.gameObject);
-    //         //handle momentum application
-    //         if (other.gameObject.GetComponent<Lockable>())
-    //         {
-    //             Lockable objScript = other.gameObject.GetComponent<Lockable>();
-    //             objScript.ApplyMomentum(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
-    //         }
-            
-    //     }
-    //     */
-
-    //     //if the other collider is not Lockable, pass through it without 
-    //     //affecting the momentum of the other object
-    //     Lockable objScript = other.gameObject.GetComponent<Lockable>();
-
-    //     if(animator.GetBool("hammerMode") && objScript && objScript.lockState())
-    //     {
-    //         //apply momentum
-    //         objScript.ApplyMomentum(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
-    //     }
-        
-
-    // }
-
 }
