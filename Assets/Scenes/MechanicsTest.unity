@@ -1835,7 +1835,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: 0
+  m_SortingLayerID: 1449403871
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!224 &1871826768
@@ -1965,7 +1965,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2062818629}
   m_LocalRotation: {x: -0, y: -0, z: 0.30280516, w: 0.9530525}
-  m_LocalPosition: {x: -0.18, y: 1.25, z: -0.7198384}
+  m_LocalPosition: {x: -0.18, y: 1.25, z: 0}
   m_LocalScale: {x: 3.406287, y: 0.8749985, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2017,6 +2017,7 @@ MonoBehaviour:
   ball: {fileID: 835980591}
   cursor: {fileID: 176682438}
   pauseMenu: {fileID: 1848932635}
+  startLevelButton: {fileID: 38607019}
 --- !u!1 &2112946384
 GameObject:
   m_ObjectHideFlags: 0
