@@ -4,6 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+
+// TODO: when cursor object is active, hide the actual cursor
+
 public class GameManager : MonoBehaviour
 {
     public Ball ball;
