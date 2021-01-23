@@ -22,7 +22,7 @@ public class PortalEntrance : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (orientation == "horizontal")
+        if (orientation == "vertical")
         {
             other.attachedRigidbody.velocity -= new Vector2(2 * other.attachedRigidbody.velocity.x, 0);
         }
