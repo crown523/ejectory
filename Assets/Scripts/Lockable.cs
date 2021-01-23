@@ -114,7 +114,7 @@ public class Lockable : MonoBehaviour
             newVelocity.y += ydelta;
 
             // and also change the direction and size of the arrow
-            transform.GetChild(0).localScale = new Vector3(0.5f, Mathf.Sqrt(newVelocity.x * newVelocity.x + newVelocity.y * newVelocity.y), 0);
+            transform.GetChild(0).localScale = new Vector3(1f, Mathf.Sqrt(newVelocity.x * newVelocity.x + newVelocity.y * newVelocity.y), 0);
             // do calculations to determine the position of the arrow (since it scales from center)
 
             // calculate rotation angle

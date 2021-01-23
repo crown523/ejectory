@@ -4,22 +4,55 @@ TextureImporter:
   internalIDToNameTable:
   - first:
       213: -6858606886214033361
-    second: spike_bottom
+    second: ejectory tilemap_0
   - first:
       213: -7098340266771736595
-    second: spike_right
+    second: ejectory tilemap_1
   - first:
       213: 5897583452302091231
-    second: wall
+    second: ejectory tilemap_2
   - first:
       213: -6165815886681455984
-    second: spike_left
+    second: ejectory tilemap_3
   - first:
       213: 2879393001053610027
-    second: spike_top
+    second: ejectory tilemap_4
   - first:
       213: -4404708610385425592
     second: ejectory tilemap_5
+  - first:
+      213: 1346493904016643147
+    second: ejectory tilemap_6
+  - first:
+      213: 8148942283667344907
+    second: ejectory tilemap_7
+  - first:
+      213: 5849263180284984458
+    second: ejectory tilemap_8
+  - first:
+      213: 1303314509608316432
+    second: ejectory tilemap_9
+  - first:
+      213: -2256902740840717703
+    second: ejectory tilemap_10
+  - first:
+      213: -4691751437514054736
+    second: ejectory tilemap_11
+  - first:
+      213: -1313205434147780155
+    second: ejectory tilemap_12
+  - first:
+      213: 7980707692336612133
+    second: ejectory tilemap_13
+  - first:
+      213: -4756893873332624724
+    second: ejectory tilemap_14
+  - first:
+      213: 3779763697949227188
+    second: ejectory tilemap_15
+  - first:
+      213: 3117456922879000449
+    second: ejectory tilemap_16
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -105,7 +138,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: spike_bottom
+      name: ejectory tilemap_0
       rect:
         serializedVersion: 2
         x: 128
@@ -113,7 +146,7 @@ TextureImporter:
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -126,15 +159,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spike_right
+      name: ejectory tilemap_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 384
+        x: 384
+        y: 512
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -147,15 +180,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: wall
+      name: ejectory tilemap_2
       rect:
         serializedVersion: 2
-        x: 128
-        y: 384
+        x: 512
+        y: 512
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -168,15 +201,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spike_left
+      name: ejectory tilemap_3
       rect:
         serializedVersion: 2
-        x: 256
+        x: 0
         y: 384
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -189,15 +222,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spike_top
+      name: ejectory tilemap_4
       rect:
         serializedVersion: 2
-        x: 126
-        y: 256
+        x: 128
+        y: 384
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -213,10 +246,10 @@ TextureImporter:
       name: ejectory tilemap_5
       rect:
         serializedVersion: 2
-        x: 378
-        y: 172
-        width: 262
-        height: 37
+        x: 256
+        y: 384
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -226,6 +259,237 @@ TextureImporter:
       bones: []
       spriteID: 84b4fd22bd45fd2c0800000000000000
       internalID: -4404708610385425592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ejectory tilemap_6
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 384
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4414295215bfa210800000000000000
+      internalID: 1346493904016643147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ejectory tilemap_7
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 384
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0e072105dbd61170800000000000000
+      internalID: 8148942283667344907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ejectory tilemap_8
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8c78aa2fd1cc2150800000000000000
+      internalID: 5849263180284984458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ejectory tilemap_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01ee0d724ad461210800000000000000
+      internalID: 1303314509608316432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ejectory tilemap_10
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 972659f2aeedda0e0800000000000000
+      internalID: -2256902740840717703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ejectory tilemap_11
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b3eb80fcec83eeb0800000000000000
+      internalID: -4691751437514054736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ejectory tilemap_12
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c942848d9e86cde0800000000000000
+      internalID: -1313205434147780155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ejectory tilemap_13
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52383f1dc5b21ce60800000000000000
+      internalID: 7980707692336612133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ejectory tilemap_14
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca2e6cda93e1cfdb0800000000000000
+      internalID: -4756893873332624724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ejectory tilemap_15
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b83e27ae0b647430800000000000000
+      internalID: 3779763697949227188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ejectory tilemap_16
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18ff8caed8e634b20800000000000000
+      internalID: 3117456922879000449
       vertices: []
       indices: 
       edges: []
