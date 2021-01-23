@@ -665,7 +665,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 274}
+  m_AnchoredPosition: {x: 0, y: 202.5}
   m_SizeDelta: {x: 227.3713, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &613698911
@@ -700,7 +700,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Brown Boxes are not Lockable
+  m_Text: 'Tip: Brown Boxes are not Lockable'
 --- !u!222 &613698912
 CanvasRenderer:
   m_ObjectHideFlags: 0
