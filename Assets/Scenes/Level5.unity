@@ -1673,7 +1673,7 @@ PrefabInstance:
     - target: {fileID: 5541206291599737963, guid: 456e2f21deb08d44e8cec4c72fd95d50,
         type: 3}
       propertyPath: startVelocityY
-      value: 0.75
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5541206291599737966, guid: 456e2f21deb08d44e8cec4c72fd95d50,
         type: 3}
@@ -2349,12 +2349,12 @@ PrefabInstance:
     - target: {fileID: 7803159590299840915, guid: 3a01852a2929ed543b955d7af9179deb,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: 0.38268343
       objectReference: {fileID: 0}
     - target: {fileID: 7803159590299840915, guid: 3a01852a2929ed543b955d7af9179deb,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.92387956
       objectReference: {fileID: 0}
     - target: {fileID: 7803159590299840915, guid: 3a01852a2929ed543b955d7af9179deb,
         type: 3}
@@ -2374,7 +2374,7 @@ PrefabInstance:
     - target: {fileID: 7803159590299840915, guid: 3a01852a2929ed543b955d7af9179deb,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 7803159590299840915, guid: 3a01852a2929ed543b955d7af9179deb,
         type: 3}
@@ -3292,12 +3292,12 @@ PrefabInstance:
     - target: {fileID: 7803159590299840915, guid: 3a01852a2929ed543b955d7af9179deb,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: 0.38268343
       objectReference: {fileID: 0}
     - target: {fileID: 7803159590299840915, guid: 3a01852a2929ed543b955d7af9179deb,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.92387956
       objectReference: {fileID: 0}
     - target: {fileID: 7803159590299840915, guid: 3a01852a2929ed543b955d7af9179deb,
         type: 3}
@@ -3317,7 +3317,7 @@ PrefabInstance:
     - target: {fileID: 7803159590299840915, guid: 3a01852a2929ed543b955d7af9179deb,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 7803159590299840915, guid: 3a01852a2929ed543b955d7af9179deb,
         type: 3}

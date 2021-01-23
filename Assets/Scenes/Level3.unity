@@ -1564,12 +1564,12 @@ PrefabInstance:
     - target: {fileID: 5541206291599737963, guid: 456e2f21deb08d44e8cec4c72fd95d50,
         type: 3}
       propertyPath: startVelocityX
-      value: 1
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 5541206291599737963, guid: 456e2f21deb08d44e8cec4c72fd95d50,
         type: 3}
       propertyPath: startVelocityY
-      value: 1
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 5541206291599737966, guid: 456e2f21deb08d44e8cec4c72fd95d50,
         type: 3}
