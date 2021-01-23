@@ -53,7 +53,7 @@ public class GameManager : MonoBehaviour
         cursor.SetActive(true);
         startLevelButton.SetActive(false);
         ball.setStartingVelocity();
-        if (initialIndicatorArrow)
+        if (initialIndicatorArrow != null)
         {
             initialIndicatorArrow.SetActive(false);
         }
