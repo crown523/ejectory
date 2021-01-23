@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public Ball ball;
     public GameObject cursor;
     public GameObject initialIndicatorArrow;
+    public AudioSource musicPlayer;
 
     // ui
     public GameObject pauseMenu;
@@ -57,6 +58,7 @@ public class GameManager : MonoBehaviour
         {
             initialIndicatorArrow.SetActive(false);
         }
+        musicPlayer.Play(0);
     }
 
     public void Pause()
