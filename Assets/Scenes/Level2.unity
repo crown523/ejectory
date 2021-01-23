@@ -778,6 +778,7 @@ GameObject:
   - component: {fileID: 629488535}
   - component: {fileID: 629488534}
   - component: {fileID: 629488533}
+  - component: {fileID: 629488536}
   m_Layer: 0
   m_Name: Hazards
   m_TagString: Hazard
@@ -851,6 +852,33 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!68 &629488536
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 629488532}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -1.4739681, y: -3.0147762}
+  - {x: -1.1106617, y: -3.0090785}
+  - {x: -1.1056027, y: -4.293199}
+  - {x: 0.75615823, y: -4.3037834}
+  - {x: 0.73664296, y: -3.0239348}
+  - {x: 1.0230057, y: -3.0225692}
+  - {x: 3.7052722, y: -0.27417278}
+  - {x: 6.0402927, y: 2.0769513}
+  - {x: 4.6936455, y: 3.3438826}
+  - {x: 3.7350194, y: 3.300128}
+  - {x: -0.1598227, y: -0.5413449}
 --- !u!1 &650156762
 GameObject:
   m_ObjectHideFlags: 0
