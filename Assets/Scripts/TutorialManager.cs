@@ -56,7 +56,7 @@ public class TutorialManager : MonoBehaviour
         ball.SetActive(true);
         goal.SetActive(true);
         textBox.SetActive(true);
-        StartCoroutine(CreateNotif("In each level, your goal is to manipulate lockable objects in order to move the ball (which is not lockable) into the goal.", 7));
+        StartCoroutine(CreateNotif("In each level, your goal is to manipulate lockable objects in order to move the ball (which is not lockable) into the goal (green portal).", 7));
         yield return new WaitForSeconds(7);
         StartCoroutine(CreateNotif("Complete this level to move on!", 3));
         yield return new WaitForSeconds(3);
