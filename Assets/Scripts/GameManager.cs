@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
 {
     public Ball ball;
     public GameObject cursor;
+    public GameObject initialIndicatorArrow;
+    public AudioSource musicPlayer;
 
     // ui
     public GameObject pauseMenu;
@@ -22,6 +24,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Time.timeScale = 1;
         pauseMenu.SetActive(false);
         isPaused = false;
         startLevelButton.SetActive(true);
@@ -52,6 +55,11 @@ public class GameManager : MonoBehaviour
         cursor.SetActive(true);
         startLevelButton.SetActive(false);
         ball.setStartingVelocity();
+        if (initialIndicatorArrow != null)
+        {
+            initialIndicatorArrow.SetActive(false);
+        }
+        musicPlayer.Play(0);
     }
 
     public void Pause()
@@ -70,6 +78,7 @@ public class GameManager : MonoBehaviour
 
     public void RestartLevel()
     {
+        Debug.Log("restarting");
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
