@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
 {
     public Ball ball;
     public GameObject cursor;
+    public GameObject initialIndicatorArrow;
 
     // ui
     public GameObject pauseMenu;
@@ -52,6 +53,10 @@ public class GameManager : MonoBehaviour
         cursor.SetActive(true);
         startLevelButton.SetActive(false);
         ball.setStartingVelocity();
+        if (initialIndicatorArrow)
+        {
+            initialIndicatorArrow.SetActive(false);
+        }
     }
 
     public void Pause()
@@ -70,6 +75,7 @@ public class GameManager : MonoBehaviour
 
     public void RestartLevel()
     {
+        Debug.Log("restarting");
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 

@@ -22,11 +22,11 @@ public class PortalEntrance : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (orientation == "vertical")
+        if (orientation == "flipX")
         {
             other.attachedRigidbody.velocity -= new Vector2(2 * other.attachedRigidbody.velocity.x, 0);
         }
-        else
+        else if (orientation == "flipY")
         {
             other.attachedRigidbody.velocity -= new Vector2(0, 2 * other.attachedRigidbody.velocity.y);
         }
